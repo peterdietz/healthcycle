@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @patient.firstname %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @patient.lastname %>
-</p>
+<h2>Patient: <%="#{@patient.firstname} #{@patient.lastname}" %></h2>
 
 <p>
   <strong>Address1:</strong>
@@ -49,6 +41,17 @@
   <strong>Dateofbirth:</strong>
   <%= @patient.dateofbirth %>
 </p>
+
+<h2>Upcoming Home Visits:</h2>
+<ul>
+  <% @patient.visits.each do |visit| %>
+      <% %>
+      <li>
+        <strong>Schedule: </strong>
+        <%= link_to("#{visit.caregiver.firstname} #{visit.caregiver.lastname} - #{visit.scheduled_start} - #{visit.scheduled_end}", visit_path(visit)) %> -- <%= (visit.scheduled_end - visit.scheduled_start) / 1.minutes.to_i %> Minutes
+      </li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

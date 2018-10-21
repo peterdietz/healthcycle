@@ -40,8 +40,11 @@
 <% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>>
 <% caregiver_location = "#{@visit.caregiver.address1} #{@visit.caregiver.city}, #{@visit.caregiver.state} #{@visit.caregiver.zip}" %>
 
-<iframe width="600" height="450" frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/directions?origin=<%= caregiver_location %>&destination=<%= patient_location %>&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
+<div class="google-maps">
+  <iframe width="600" height="450" frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/directions?origin=<%= caregiver_location %>&destination=<%= patient_location %>&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
+</div>
+
 
 <p>
   <strong>Notes:</strong>

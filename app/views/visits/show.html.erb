@@ -2,9 +2,10 @@
 
 <h2>Upcoming Home Visit</h2>
 
+
 <p>
   <strong>Scheduled:</strong>
-  <%= @visit.scheduled_start %> - <%= @visit.scheduled_end %> (<%= (@visit.scheduled_end - @visit.scheduled_start) / 1.minutes.to_i %> Minutes)
+  <%= "#{@visit.scheduled_start.strftime("%m/%d/%Y @ %I:%M%p")} - #{@visit.scheduled_end.strftime("%I:%M%p")}" %> -- <%= ((@visit.scheduled_end - @visit.scheduled_start) / 1.minutes).to_i %> Minutes<br/>
 </p>
 
 <p>
@@ -22,7 +23,11 @@
   <%= simple_format @visit.notes %>
 </p>
 
-<% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>>
+<button type="button" class="btn btn-warning">On My Way</button>
+<button type="button" class="btn btn-primary">Start Visit</button>
+<button type="button" class="btn btn-danger">Finish Visit</button> <br/><br/>
+
+<% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>
 <% caregiver_location = "#{@visit.caregiver.address1} #{@visit.caregiver.city}, #{@visit.caregiver.state} #{@visit.caregiver.zip}" %>
 
 <div class="google-maps">

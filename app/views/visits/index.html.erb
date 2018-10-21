@@ -19,8 +19,8 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.caregiver %></td>
-        <td><%= visit.patient %></td>
+        <td><%= link_to("#{visit.caregiver.firstname} #{visit.caregiver.lastname}", caregiver_path(visit.caregiver)) %></td>
+        <td><%= link_to("#{visit.patient.firstname} #{visit.patient.lastname}", patient_path(visit.patient)) %></td>
         <td><%= visit.scheduled_start %></td>
         <td><%= visit.scheduled_end %></td>
         <td><%= visit.notes %></td>

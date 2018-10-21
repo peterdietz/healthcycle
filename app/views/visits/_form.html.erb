@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :caregiver_id %>
-    <%= form.text_field :caregiver_id, id: :visit_caregiver_id %>
+    <%= form.select :caregiver_id, options_for_select(Caregiver.all.map{|c|["#{c.lastname}, #{c.firstname}", c.id]}), :selected => :visit_caregiver_id %>
   </div>
 
   <div class="field">
     <%= form.label :patient_id %>
-    <%= form.text_field :patient_id, id: :visit_patient_id %>
+    <%= form.select :patient_id, options_for_select(Patient.all.map{|p|["#{p.lastname}, #{p.firstname}", p.id]}), :selected => :visit_patient_id %>
   </div>
 
   <div class="field">

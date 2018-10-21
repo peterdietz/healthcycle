@@ -1,14 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Upcoming Home Visit</h1>
+
 <p>
   <strong>Caregiver:</strong>
-  <%= @visit.caregiver %>
+  <%= link_to("#{@visit.caregiver.firstname} #{@visit.caregiver.lastname}", caregiver_path(@visit.caregiver)) %> 4.8*
 </p>
 
 <p>
   <strong>Patient:</strong>
-  <%= @visit.patient %>
+  <%= link_to("#{@visit.patient.firstname} #{@visit.patient.lastname}", patient_path(@visit.patient)) %>
+  <address>
+      <%= @visit.patient.address1 %><br>
+      <%= @visit.patient.city %>, <%= @visit.patient.state %> <%= @visit.patient.zip %><br>
+      USA
+  </address>
 </p>
+
+<iframe width="600" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJU3Ev3JeRMIgR2unHKYio1tM&destination=place_id:ChIJLWto4y7vMIgRQhhi91XLBO0&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
 
 <p>
   <strong>Scheduled start:</strong>
@@ -22,7 +32,7 @@
 
 <p>
   <strong>Notes:</strong>
-  <%= @visit.notes %>
+  <%= simple_format @visit.notes %>
 </p>
 
 <p>

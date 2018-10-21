@@ -1,40 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Upcoming Home Visit</h1>
+<h2>Upcoming Home Visit</h2>
 
 <p>
-  <strong>Scheduled start:</strong>
-  <%= @visit.scheduled_start %>
-</p>
-
-<p>
-  <strong>Scheduled end:</strong>
-  <%= @visit.scheduled_end %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= (@visit.scheduled_end - @visit.scheduled_start) / 1.minutes.to_i %> Minutes
+  <strong>Scheduled:</strong>
+  <%= @visit.scheduled_start %> - <%= @visit.scheduled_end %> (<%= (@visit.scheduled_end - @visit.scheduled_start) / 1.minutes.to_i %> Minutes)
 </p>
 
 <p>
   <strong>Caregiver:</strong>
   <%= link_to("#{@visit.caregiver.firstname} #{@visit.caregiver.lastname}", caregiver_path(@visit.caregiver)) %>
-  <address>
-    <%= @visit.caregiver.address1 %><br>
-    <%= @visit.caregiver.city %>, <%= @visit.caregiver.state %> <%= @visit.caregiver.zip %><br>
-    USA
-  </address>
 </p>
 
 <p>
   <strong>Patient:</strong>
   <%= link_to("#{@visit.patient.firstname} #{@visit.patient.lastname}", patient_path(@visit.patient)) %>
-  <address>
-      <%= @visit.patient.address1 %><br>
-      <%= @visit.patient.city %>, <%= @visit.patient.state %> <%= @visit.patient.zip %><br>
-      USA
-  </address>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= simple_format @visit.notes %>
 </p>
 
 <% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>>
@@ -45,21 +30,11 @@
           src="https://www.google.com/maps/embed/v1/directions?origin=<%= caregiver_location %>&destination=<%= patient_location %>&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
 </div>
 
-
-<p>
-  <strong>Notes:</strong>
-  <%= simple_format @visit.notes %>
-</p>
-
-<p>
-  <strong>Actual start:</strong>
-  <%= @visit.actual_start %>
-</p>
-
-<p>
-  <strong>Actual end:</strong>
-  <%= @visit.actual_end %>
-</p>
+<address>
+  <%= @visit.patient.address1 %><br>
+  <%= @visit.patient.city %>, <%= @visit.patient.state %> <%= @visit.patient.zip %><br>
+  USA
+</address>
 
 <hr/>
 

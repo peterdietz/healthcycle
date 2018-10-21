@@ -10,8 +10,6 @@
       <th>Scheduled start</th>
       <th>Scheduled end</th>
       <th>Notes</th>
-      <th>Actual start</th>
-      <th>Actual end</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +22,6 @@
         <td><%= visit.scheduled_start %></td>
         <td><%= visit.scheduled_end %></td>
         <td><%= visit.notes %></td>
-        <td><%= visit.actual_start %></td>
-        <td><%= visit.actual_end %></td>
         <td><%= link_to 'Show', visit %></td>
         <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
         <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,22 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
+      <th>Name</th>
       <th>Address1</th>
-      <th>Address2</th>
       <th>City</th>
       <th>State</th>
-      <th>Country</th>
       <th>Zip</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Drivers license number</th>
-      <th>Drivers license state</th>
       <th>Is stna</th>
-      <th>Stna license</th>
       <th>Is lpn</th>
-      <th>Lpn license</th>
       <th>Is verified</th>
       <th colspan="3"></th>
     </tr>
@@ -29,22 +22,15 @@
   <tbody>
     <% @caregivers.each do |caregiver| %>
       <tr>
-        <td><%= caregiver.firstname %></td>
-        <td><%= caregiver.lastname %></td>
+        <td><%= "#{caregiver.firstname} #{caregiver.lastname}" %></td>
         <td><%= caregiver.address1 %></td>
-        <td><%= caregiver.address2 %></td>
         <td><%= caregiver.city %></td>
         <td><%= caregiver.state %></td>
-        <td><%= caregiver.country %></td>
         <td><%= caregiver.zip %></td>
         <td><%= caregiver.email %></td>
         <td><%= caregiver.phone %></td>
-        <td><%= caregiver.drivers_license_number %></td>
-        <td><%= caregiver.drivers_license_state %></td>
         <td><%= caregiver.is_stna %></td>
-        <td><%= caregiver.stna_license_id %></td>
         <td><%= caregiver.is_lpn %></td>
-        <td><%= caregiver.lpn_license_id %></td>
         <td><%= caregiver.is_verified %></td>
         <td><%= link_to 'Show', caregiver %></td>
         <td><%= link_to 'Edit', edit_caregiver_path(caregiver) %></td>

@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :scheduled_start %>
-    <%= form.datetime_select :scheduled_start, id: :visit_scheduled_start %>
+    <%= form.datetime_select :scheduled_start, id: :visit_scheduled_start, :ampm => true, :minute_step => 10 %>
   </div>
 
   <div class="field">
     <%= form.label :scheduled_end %>
-    <%= form.datetime_select :scheduled_end, id: :visit_scheduled_end %>
+    <%= form.datetime_select :scheduled_end, id: :visit_scheduled_end, :ampm => true, :minute_step => 10  %>
   </div>
 
   <div class="field">
@@ -38,12 +38,12 @@
 
   <div class="field">
     <%= form.label :actual_start %>
-    <%= form.datetime_select :actual_start, id: :visit_actual_start %>
+    <%= form.datetime_select :actual_start, id: :visit_actual_start, prompt: true %>
   </div>
 
   <div class="field">
     <%= form.label :actual_end %>
-    <%= form.datetime_select :actual_end, id: :visit_actual_end %>
+    <%= form.datetime_select :actual_end, id: :visit_actual_end, prompt: true %>
   </div>
 
   <div class="actions">

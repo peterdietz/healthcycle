@@ -3,8 +3,28 @@
 <h1>Upcoming Home Visit</h1>
 
 <p>
+  <strong>Scheduled start:</strong>
+  <%= @visit.scheduled_start %>
+</p>
+
+<p>
+  <strong>Scheduled end:</strong>
+  <%= @visit.scheduled_end %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= (@visit.scheduled_end - @visit.scheduled_start) / 1.minutes.to_i %> Minutes
+</p>
+
+<p>
   <strong>Caregiver:</strong>
-  <%= link_to("#{@visit.caregiver.firstname} #{@visit.caregiver.lastname}", caregiver_path(@visit.caregiver)) %> 4.8*
+  <%= link_to("#{@visit.caregiver.firstname} #{@visit.caregiver.lastname}", caregiver_path(@visit.caregiver)) %>
+  <address>
+    <%= @visit.caregiver.address1 %><br>
+    <%= @visit.caregiver.city %>, <%= @visit.caregiver.state %> <%= @visit.caregiver.zip %><br>
+    USA
+  </address>
 </p>
 
 <p>
@@ -17,18 +37,11 @@
   </address>
 </p>
 
+<% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>>
+<% caregiver_location = "#{@visit.caregiver.address1} #{@visit.caregiver.city}, #{@visit.caregiver.state} #{@visit.caregiver.zip}" %>
+
 <iframe width="600" height="450" frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJU3Ev3JeRMIgR2unHKYio1tM&destination=place_id:ChIJLWto4y7vMIgRQhhi91XLBO0&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
-
-<p>
-  <strong>Scheduled start:</strong>
-  <%= @visit.scheduled_start %>
-</p>
-
-<p>
-  <strong>Scheduled end:</strong>
-  <%= @visit.scheduled_end %>
-</p>
+        src="https://www.google.com/maps/embed/v1/directions?origin=<%= caregiver_location %>&destination=<%= patient_location %>&key=AIzaSyAvZoEbbmyfKTbv6YcEtBghRdSaHBNPznI" allowfullscreen></iframe>
 
 <p>
   <strong>Notes:</strong>
@@ -44,6 +57,8 @@
   <strong>Actual end:</strong>
   <%= @visit.actual_end %>
 </p>
+
+<hr/>
 
 <%= link_to 'Edit', edit_visit_path(@visit) %> |
 <%= link_to 'Back', visits_path %>

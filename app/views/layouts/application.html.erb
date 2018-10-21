@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <h2>HealthCyCLE</h2>
+    <%= link_to("Patients", patients_path) %>
+    <%= link_to("Caregivers", caregivers_path) %>
+    <%= link_to("Home Visits", visits_path) %>
+    <hr/>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @caregiver.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @caregiver.lastname %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @caregiver.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @caregiver.address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @caregiver.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @caregiver.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @caregiver.country %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @caregiver.zip %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @caregiver.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @caregiver.phone %>
+</p>
+
+<p>
+  <strong>Drivers license number:</strong>
+  <%= @caregiver.drivers_license_number %>
+</p>
+
+<p>
+  <strong>Drivers license state:</strong>
+  <%= @caregiver.drivers_license_state %>
+</p>
+
+<p>
+  <strong>Is stna:</strong>
+  <%= @caregiver.is_stna %>
+</p>
+
+<p>
+  <strong>Stna license:</strong>
+  <%= @caregiver.stna_license_id %>
+</p>
+
+<p>
+  <strong>Is lpn:</strong>
+  <%= @caregiver.is_lpn %>
+</p>
+
+<p>
+  <strong>Lpn license:</strong>
+  <%= @caregiver.lpn_license_id %>
+</p>
+
+<p>
+  <strong>Is verified:</strong>
+  <%= @caregiver.is_verified %>
+</p>
+
+<%= link_to 'Edit', edit_caregiver_path(@caregiver) %> |
+<%= link_to 'Back', caregivers_path %>

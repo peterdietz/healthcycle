@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caregiver:</strong>
+  <%= @visit.caregiver %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @visit.patient %>
+</p>
+
+<p>
+  <strong>Scheduled start:</strong>
+  <%= @visit.scheduled_start %>
+</p>
+
+<p>
+  <strong>Scheduled end:</strong>
+  <%= @visit.scheduled_end %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @visit.notes %>
+</p>
+
+<p>
+  <strong>Actual start:</strong>
+  <%= @visit.actual_start %>
+</p>
+
+<p>
+  <strong>Actual end:</strong>
+  <%= @visit.actual_end %>
+</p>
+
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>

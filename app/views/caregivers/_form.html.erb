@@ -1,0 +1,102 @@
+<%= form_with(model: caregiver, local: true) do |form| %>
+  <% if caregiver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(caregiver.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
+
+      <ul>
+      <% caregiver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :firstname %>
+    <%= form.text_field :firstname, id: :caregiver_firstname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname, id: :caregiver_lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.text_field :address1, id: :caregiver_address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2 %>
+    <%= form.text_field :address2, id: :caregiver_address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :caregiver_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :caregiver_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :caregiver_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :caregiver_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :caregiver_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :caregiver_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :drivers_license_number %>
+    <%= form.text_field :drivers_license_number, id: :caregiver_drivers_license_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :drivers_license_state %>
+    <%= form.text_field :drivers_license_state, id: :caregiver_drivers_license_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_stna %>
+    <%= form.check_box :is_stna, id: :caregiver_is_stna %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stna_license_id %>
+    <%= form.text_field :stna_license_id, id: :caregiver_stna_license_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_lpn %>
+    <%= form.check_box :is_lpn, id: :caregiver_is_lpn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lpn_license_id %>
+    <%= form.text_field :lpn_license_id, id: :caregiver_lpn_license_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_verified %>
+    <%= form.check_box :is_verified, id: :caregiver_is_verified %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

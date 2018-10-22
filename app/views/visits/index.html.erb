@@ -2,13 +2,14 @@
 
 <h1>Visits</h1>
 
+<!--
 <table>
   <thead>
     <tr>
       <th>Caregiver</th>
       <th>Patient</th>
       <th>Visit Time</th>
-      <!--<th>Notes</th>-->
+      <!-<th>Notes</th>->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,7 +20,7 @@
         <td><%= link_to("#{visit.caregiver.firstname} #{visit.caregiver.lastname}", caregiver_path(visit.caregiver)) %></td>
         <td><%= link_to("#{visit.patient.firstname} #{visit.patient.lastname}", patient_path(visit.patient)) %></td>
         <td><%= "#{visit.scheduled_start.strftime("%m/%d/%Y @ %I:%M%p")} - #{visit.scheduled_end.strftime("%I:%M%p")}" %></td>
-        <!--<td><%= visit.notes %></td>-->
+        <!-<td><%= visit.notes %></td>->
         <td><%= link_to 'Details', visit %></td>
         <td><%= link_to 'Modify', edit_visit_path(visit) %></td>
         <td><%= link_to 'Cancel', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +28,22 @@
     <% end %>
   </tbody>
 </table>
+-->
+
+
+<% @visits.each do |visit| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= visit.caregiver.display_name %> caring for <%= visit.patient.display_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= visit.display_date %></h6>
+        <p class="card-text"><%= simple_format visit.notes %></p>
+        <%= link_to 'Details', visit, class: "card-link" %>
+        <%= link_to 'Modify', edit_visit_path(visit), class: "card-link" %>
+      </div>
+    </div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Visit', new_visit_path %>
+
+<%= link_to 'New Visit', new_visit_path, :class => "btn btn-primary", :style => "color:white" %>

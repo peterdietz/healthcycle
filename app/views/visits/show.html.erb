@@ -23,9 +23,9 @@
   <%= simple_format @visit.notes %>
 </p>
 
-<button type="button" class="btn btn-warning">On My Way</button>
-<button type="button" class="btn btn-primary">Start Visit</button>
-<button type="button" class="btn btn-danger">Finish Visit</button> <br/><br/>
+<button type="button" class="btn btn-warning" onclick="alert('not yet implemented');">On My Way</button>
+<button type="button" class="btn btn-primary" onclick="alert('not yet implemented');">Start Visit</button>
+<button type="button" class="btn btn-danger" onclick="alert('not yet implemented');">Finish Visit</button> <br/><br/>
 
 <% patient_location = "#{@visit.patient.address1} #{@visit.patient.city}, #{@visit.patient.state} #{@visit.patient.zip}" %>
 <% caregiver_location = "#{@visit.caregiver.address1} #{@visit.caregiver.city}, #{@visit.caregiver.state} #{@visit.caregiver.zip}" %>

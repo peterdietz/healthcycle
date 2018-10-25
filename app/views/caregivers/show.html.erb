@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Caregiver: <%= "#{@caregiver.firstname} #{@caregiver.lastname}" %></h2>
+<h2>Caregiver: <%= @caregiver.display_name %></h2>
 
 <p>
   <strong>Address:</strong>
   <address>
     <%= @caregiver.address1 %><br/>
-    <%= @caregiver.address2 %><br/>
+    <% if @caregiver.address2.present? %>
+        <%= @caregiver.address2 %><br/>
+    <% end %>
     <%= @caregiver.city %>, <%= @caregiver.state %> <%= @caregiver.zip %>
   </address>
 
@@ -38,7 +40,7 @@
 </p>
 
 <p>
-  <strong>STNA license:</strong>
+  <strong>STNA License Number:</strong>
   <%= @caregiver.stna_license_id %>
 </p>
 
@@ -48,7 +50,7 @@
 </p>
 
 <p>
-  <strong>LPN license:</strong>
+  <strong>Nursing License Number:</strong>
   <%= @caregiver.lpn_license_id %>
 </p>
 
@@ -62,8 +64,8 @@
 <% next_visits.each do |visit| %>
     <div class="card">
       <div class="card-body">
-        <b><%= "#{visit.patient.firstname} #{visit.patient.lastname}" %></b><br/>
-        <%= link_to("#{visit.scheduled_start.strftime("%m/%d/%Y @ %I:%M%p")} - #{visit.scheduled_end.strftime("%I:%M%p")}", visit_path(visit)) %> -- <%= (visit.scheduled_end - visit.scheduled_start) / 1.minutes.to_i %> Minutes<br/>
+        <b><%= visit.patient.display_name %></b><br/>
+        <%= link_to(visit.display_date, visit_path(visit)) %> -- <%= visit.duration %> Minutes<br/>
         In <%= time_ago_in_words(visit.scheduled_start) %>
       </div>
     </div>
